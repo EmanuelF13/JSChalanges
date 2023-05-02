@@ -36,17 +36,29 @@ BMI= mass/ height*height .(mas in kilo and height in meter)
 */
 
 let Mark ={
-    fullName: "The Mark",
-    Mass: 110,
-    Height: 190
+    fullName: "Mark Miller",
+    Mass: 92,
+    Height: 1.95,
+    calcBMI: function(){
+        this.bmi = this.Mass*this.Height^2;
+        console.log(this.bmi);
+    }
 };
 
 let John = {
-    fullName: "Join you later",
-    Mass: 90,
-    Height: 180
+    fullName: "John Smith",
+    Mass: 78,
+    Height: 1.69,
+    calcBMI: function(){
+        this.bmi = this.Mass*this.Height^2;
+        console.log(this.bmi);
+    }
 };
+John.calcBMI();
+Mark.calcBMI();
+console.log(John,Mark);
 
+/*
 function BMIClaculater (anyObject){
     anyObject.BMI = anyObject.Mass / (anyObject.Height ^ 2);
     console.log(anyObject.BMI);
@@ -63,3 +75,4 @@ function main (){
 }
 
 main();
+*/
