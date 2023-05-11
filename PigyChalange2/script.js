@@ -154,15 +154,18 @@ window.addEventListener('load', function(){
 });
 */
 
-document.getElementById('name--0').addEventListener('click',function (){
-    let personName = prompt("Specify player one name:", "Player 1");
-    let player1 = document.getElementById('name--0');
-    player1.textContent = personName ? personName : "Player 1" 
-});
+function playerNameSetter(id, defaultName){
+    if(id && defaultName){
+        document.getElementById(id).addEventListener('click',function (){
+            let personName = prompt("Specify player one name:", defaultName);
+            let player1 = document.getElementById(id);
+            player1.textContent = personName ? personName : defaultName; 
+        });
+    } 
+    else{
+        console.log('The ID or the DEFAULT_NAME you enter is not corectly defined. ID value is ${id} and DEFAULT_NAME value is ${defaultName}');
+    }
+
+}
 
 
-document.getElementById('name--1').addEventListener('click',function (){
-    let personName = prompt("Specify player one name:", "Player 2");
-    let player2 = document.getElementById('name--1');
-    player2.textContent= personName ? personName: "Player 2"; 
-});
