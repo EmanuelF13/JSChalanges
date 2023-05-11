@@ -82,7 +82,8 @@ document.querySelector('.btn--hold').addEventListener('click', function (){
         //undefined 0, null or "" are Coereced to false
         if (getFinalScoreVariable){
             //anything else is Coerced to true
-            winningScore=input; 
+            let input = document.querySelector('.final-score').value;
+            winningScore = input; 
         }else{
             winningScore = 100;
         }
@@ -144,12 +145,24 @@ function init(){
     document.getElementById('dice-2').style.display = 'none';
     
 }
+/*
 window.addEventListener('load', function(){
     var person1 = prompt("Please enter your name", "Player 1");
     var person2 = prompt("Please enter your name", "Player 2");
     document.getElementById('name--0').textContent = person1;
     document.getElementById('name--1').textContent = person2;
 });
+*/
+
+document.getElementById('name--0').addEventListener('click',function (){
+    let personName = prompt("Specify player one name:", "Player 1");
+    let player1 = document.getElementById('name--0');
+    player1.textContent = personName ? personName : "Player 1" 
+});
 
 
-
+document.getElementById('name--1').addEventListener('click',function (){
+    let personName = prompt("Specify player one name:", "Player 2");
+    let player2 = document.getElementById('name--1');
+    player2.textContent= personName ? personName: "Player 2"; 
+});
