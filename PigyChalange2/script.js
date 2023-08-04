@@ -80,11 +80,15 @@ document.querySelector('.btn--hold').addEventListener('click', function (){
       var getFinalScoreVariable=document.querySelector('.final-score').value;
       console.log(`Final score set is ${getFinalScoreVariable}.`);
         //undefined 0, null or "" are Coereced to false
-        if (getFinalScoreVariable){
+        if (getFinalScoreVariable && !isNaN(getFinalScoreVariable) ){
             //anything else is Coerced to true
             let input = document.querySelector('.final-score').value;
             winningScore = input; 
         }else{
+            if (isNaN(getFinalScoreVariable)) {
+                alert("The final score specified is not a number so we will stick to the default value!");
+                document.querySelector('.final-score').value = "100";
+        }
             winningScore = 100;
         }
       //Check if player won the game
@@ -145,14 +149,7 @@ function init(){
     document.getElementById('dice-2').style.display = 'none';
     
 }
-/*
-window.addEventListener('load', function(){
-    var person1 = prompt("Please enter your name", "Player 1");
-    var person2 = prompt("Please enter your name", "Player 2");
-    document.getElementById('name--0').textContent = person1;
-    document.getElementById('name--1').textContent = person2;
-});
-*/
+
 
 function playerNameSetter(id, defaultName){
     if(id && defaultName){
