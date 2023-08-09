@@ -116,6 +116,21 @@ var UIController = (function() {
            console.log(element);
                    document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
+        clearFields: function(){
+            var fieldsToClear, fieldsArrayToClear;
+
+            fieldsToClear = document.querySelectorAll(DOMstrings.inputDescription + ',' + DOMstrings.inputValue);
+
+            fieldsArrayToClear = Array.prototype.slice.call(fieldsToClear);
+
+            fieldsArrayToClear.forEach(function(currVal, index, array) {
+                // After use of fields we clear them
+                currVal.value = "";
+            });
+            //After use of fields(press enter) select field description to start with new element.(No need to select it manualy)
+            fieldsArrayToClear[0].focus();
+
+        },
         getDOMStrings: function() {
             return DOMstrings;
         }
@@ -140,7 +155,17 @@ var controler =(function(budgetCtrl,UICtrl) {
             }
         });
     };
+     var updateBudget = function(){
+    //1. Calculate budget
+
+
+    //2. Return the budget 
     
+
+    //3. Display the budget on the UI
+
+
+     }
 
     var ctrlAddItem =  function() {
     var input, newItem;
@@ -153,10 +178,11 @@ var controler =(function(budgetCtrl,UICtrl) {
     //3. Add item to the UI
     UIController.addListItem(newItem, input.type);
 
-    //4. Calculate budget
+    //4. Clear Fields(new feature that needed to be added after UI review)
+    UIController.clearFields();
 
+    //5. Call update budget
 
-    //5. Display the budget on the UI
         
     };
 
